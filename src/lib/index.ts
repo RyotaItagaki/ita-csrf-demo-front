@@ -27,3 +27,11 @@ export const listPosts = async () => {
   const response = await axios.get<Post[]>('/post/list');
   return response.data;
 };
+
+export const createPost = async (body: {
+  userId: number;
+  text: string;
+}) => {
+  const response = await axios.post('/post/create', body);
+  return response.data;
+};

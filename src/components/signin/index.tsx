@@ -24,7 +24,6 @@ export const SignInForm = () => {
     } catch (error) {
       window.alert('ログインに失敗しました');
     }
-    
   };
 
   return (

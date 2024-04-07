@@ -1,24 +1,30 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn, hello } from '@/lib';
 import { signInSchema, SignInSchema } from '@/schema';
 import styles from './style.module.scss';
 
-export const SignIn = () => {
+export const SignInForm = () => {
+  const router = useRouter();
   const { register, handleSubmit } = useForm<SignInSchema>({
     resolver: zodResolver(signInSchema),
   });
 
   const onSubmit: SubmitHandler<SignInSchema> = async (data) => {
     const { email, password } = data;
-    const response = await signIn(email, password);
-    console.log(response);
-  };
+    // console.log(data);
+    try {
+      const response = await signIn(email, password);  
+      // console.log(response);
 
-  const test = () => {
-    console.log(process.env.NEXT_PUBLIC_BASE_URL);
+      router.replace('/home');
+    } catch (error) {
+      window.alert('ログインに失敗しました');
+    }
+    
   };
 
   return (

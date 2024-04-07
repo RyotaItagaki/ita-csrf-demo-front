@@ -6,6 +6,7 @@ body {
   overflow: clip visible;
   background-color: $white;
   scroll-behavior: smooth;
+  margin: 0;
 }
 
 a {

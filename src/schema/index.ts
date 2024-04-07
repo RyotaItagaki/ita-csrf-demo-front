@@ -10,3 +10,11 @@ export const signInSchema = z.object({
 });
 
 export type SignInSchema = z.infer<typeof signInSchema>;
+
+export const postSchema = z.object({
+  text: z.string().min(0, {
+    message: '本文を入力してください',
+  }),
+});
+
+export type PostSchema = z.infer<typeof postSchema>;

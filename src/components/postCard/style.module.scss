@@ -1,0 +1,19 @@
+.postCard {
+  background-color: #dcdcdc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+
+  .userName {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .createdAt {
+    font-size: 0.8em;
+    color: #666;
+    margin: 0;
+    text-align: right;
+  }
+}

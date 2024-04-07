@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signIn, hello } from '@/lib';
+import { signIn } from '@/lib';
 import { signInSchema, SignInSchema } from '@/schema';
 import styles from './style.module.scss';
 
@@ -38,9 +38,6 @@ export const SignInForm = () => {
         <input {...register('password')} />
       </div>
       <button type="submit">Sign in</button>
-      <button type="button" onClick={hello}>
-        hello
-      </button>
     </form>
   );
 };

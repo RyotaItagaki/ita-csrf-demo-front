@@ -7,10 +7,12 @@ import styles from './style.module.scss';
 
 export default async function Home() {
   const cookieStore = cookies();
+  const sessionIdCookie = cookieStore.get('connect.sid');
+  console.log('sessionId', sessionIdCookie?.value);
   const userIdCookie = cookieStore.get('userId');
   console.log('userId', userIdCookie?.value);
 
-  if (!userIdCookie?.value) {
+  if (!sessionIdCookie?.value) {
     redirect('/');
   }
 

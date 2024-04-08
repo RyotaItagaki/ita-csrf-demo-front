@@ -31,6 +31,7 @@ export const PostForm = ({ userId }: Props) => {
       await createPost(body);
 
       // router.replace('/home');
+      window.alert('投稿しました');
       window.location.reload();
     } catch (error) {
       window.alert('投稿に失敗しました');

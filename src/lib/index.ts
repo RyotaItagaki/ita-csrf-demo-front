@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+}
+
 type Post = {
   id: number;
   text: string;
@@ -14,7 +21,7 @@ axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 axios.defaults.withCredentials = true;
 
 export const signIn = async (email: string, password: string) => {
-  const response = await axios.post('/auth/signin', { email, password });
+  const response = await axios.post<User>('/auth/signin', { email, password });
   return response.data;
 };
 
